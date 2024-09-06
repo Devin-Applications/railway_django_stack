@@ -85,3 +85,60 @@ This is a barebones Django-project with the following additions/updates:
 - Uses [`python-decouple`](https://github.com/HBNetwork/python-decouple) to manage settings via environment varialbes
 - Uses [`whitenoise`](https://github.com/evansd/whitenoise) to make serving static assets easy
 - Installs and runs with [`gunicorn`](https://github.com/benoitc/gunicorn)
+
+## Local Development Setup
+
+To set up the project for local development:
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Antvirf/railway_django_stack.git
+   cd railway_django_stack
+   ```
+
+2. Create a virtual environment:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   pip install -r requirements-dev.txt
+   ```
+
+4. Set up environment variables:
+   - Create a `.env` file in the project root
+   - Add `DJANGO_SETTINGS_MODULE=railway_django_stack.settings`
+   - Add other necessary environment variables (e.g., `DATABASE_URL`, `REDIS_URL`)
+
+5. Run migrations:
+   ```bash
+   python manage.py migrate
+   ```
+
+6. Start the development server:
+   ```bash
+   python manage.py runserver
+   ```
+
+## Running Tests
+
+To run the tests:
+
+1. Ensure you're in the project directory with the virtual environment activated.
+
+2. Run the tests using pytest:
+   ```bash
+   pytest
+   ```
+
+For more detailed test coverage information:
+
+```bash
+coverage run -m pytest
+coverage report
+```
+
+This will run the tests and generate a coverage report, showing which parts of the code are covered by the tests.
